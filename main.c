@@ -29,6 +29,8 @@ bool is_in_ascii_range(char ltr);
 
 char vigenere_offset_letter(char msgLtr, char keyLtr);
 
+void mario();
+
 int main(int argc, char *argv[])
 {
 
@@ -40,10 +42,10 @@ int main(int argc, char *argv[])
     printf("4. Integer and Float Addition \n");
     printf("5. Print ASCII values of letters in a string\n");
     printf("6. Print the provinces of Canada\n");
-    printf("8. Change Machine\n");
-    printf("9. Rock Paper Scissors\n");
-    printf("10. Vigenere Cipher\n");
-
+    printf("7. Change Machine\n");
+    printf("8. Rock Paper Scissors\n");
+    printf("9. Vigenere Cipher\n");
+    printf("mario stairs\n");
     int selection = get_int("What is your selection?\n");
 
     // TODO:: Write a 10 case switch statement to run the appropriate function.
@@ -98,7 +100,7 @@ int main(int argc, char *argv[])
      break;
      
      case 10:
-     
+        mario();
      break;
      }
 
@@ -411,4 +413,29 @@ bool is_in_ascii_range(char ltr)
     {
         return false;
     }
+}
+
+void mario()
+{
+ int level = get_int("Enter the height of the stairs as an integer value");
+ int level_copy = level;
+ for(int i= 0; i <= level; i++)
+{
+// want tto incrase the hashtags each time 
+
+    for(int spaces = level_copy; spaces > 0; spaces --)
+    {
+        printf(" ");
+
+    }
+        for(int blocks = 0; blocks < i; blocks ++ )
+    {
+        
+      printf("#");
+      
+    }
+    level_copy--;
+    printf("\n");
+}
+
 }
