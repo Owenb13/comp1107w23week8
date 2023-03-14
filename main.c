@@ -88,11 +88,13 @@ int main(int argc, char *argv[])
      break;
      
      case 8:
-     
+     rock_paper_scissors();
+
      break;
      
      case 9:
-     
+      vigenere_cipher();
+
      break;
      
      case 10:
@@ -238,14 +240,95 @@ void change_machine()
 
 string rock_paper_scissors()
 {
+    int choice = get_int("Choose 1 for rock, 2 for paper, and 3 for scissors:\t");
+
+    string choiceStr =  rock_paper_scissors_choices(choice);
+
+    printf("\n\nYou chose %s\n", choiceStr);
     // TODO:: Query the user for an int between 1 and 3 for their choice of rock, paper scissors.
     //       Use a do while loop to guarantee their input is valid
 
+    string win = "Winner!";
+    string lose = "You Lose!";
+    string tie = "Tie!";
+
+    int i = 0;
+
+  do{
+  
     // Generates a pseudo random int between 0 and 29
     // Use this to determine the "AI" choice
     int random = rand() % 30;
 
+    int AIchoice;
+
+    if(random <= 9) {
+        AIchoice = 1;
+    } else if(random > 9 && random <= 19) {
+        AIchoice = 2;
+    } else{
+        AIchoice = 3;
+    }
+
+
+    string AIchoiceStr = rock_paper_scissors_choices(AIchoice);
+
+    printf("\nThe computer chose %s\n\n", AIchoiceStr);
+
+    string result;
+
+    switch(AIchoice){
+
+        case 1:
+
+            if(choice == 1){
+                result = "Tie!";
+            } else if (choice == 2){
+                result = "You Lose!";
+            } else {
+                result = "Winner!";
+            }
+
+            break;
+
+        case 2:
+
+            if(choice == 2){
+                result = "Tie!";
+            } else if (choice == 3){
+                result = "You Lose!";
+            } else {
+                result = "Winner";
+            }
+
+            break;
+
+        case 3:
+
+            if(choice == 3){
+                result = "Tie!";
+            } else if (choice == 1){
+                result = "You Lose!";
+            } else {
+                result = "Winner";
+            }
+
+            break;
+
+           
+            
+    }
+
+     
+
+     i++;
+
+    printf("%s\n\n\n", result);
+            //return result;
     // TODO:: Write the game logic with if checks and determine who won
+
+
+} while(choice > 0 && choice < 4 && i < 1);
 }
 
 // Convenience function you can call
@@ -275,6 +358,24 @@ void vigenere_cipher()
     string key = get_string("What is your encoding key? ");
 
     // TODO:: Write the for loop for the vigenere cipher
+    int messageLen = strlen(message);
+    int keyLen = strlen(key);
+
+    //make keyLen = messageLen
+    for( int i = 0; i < (messageLen - keyLen); i++)
+               {
+                  key[ keyLen + i ] = key[i];  
+               }
+
+    string encodedMessage;
+    
+    for(int i = 0; i < messageLen; i++){
+        
+        encodedMessage[i] = vigenere_offset_letter(message[i], key[i]);
+
+    }
+
+    printf(" Your encoded message is %s", encodedMessage);
 }
 
 // Convenice function you can call
