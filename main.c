@@ -273,7 +273,7 @@ string rock_paper_scissors()
     }
 
 
-    string AIchoiceStr = rock_paper_scissors_choices(AIchoice);
+    string AIchoiceStr = rock_paper_scissors_choices(AIchoice);2
 
     printf("\nThe computer chose %s\n\n", AIchoiceStr);
 
