@@ -205,9 +205,9 @@ string print_ascii_string_value()
      
       printf(" %c\n", name[i]);
       printf(" %d\n", name[i]);
-      i++;
+      i++;// increments the name array by 1 to increase the letter index
       strlng_length = strlng_length - 1;
-      
+      // decrements the string length by 1 to correspond with how many letters are left.
       
 
      }
