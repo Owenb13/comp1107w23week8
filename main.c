@@ -217,7 +217,7 @@ void change_machine()
 {
 
     int coins[] = {25, 10, 5};
-    int coinCounts[] = {0,
+    int coinCounts[] = {0 ,
                         0,
                         0};
 
@@ -230,9 +230,9 @@ void change_machine()
       for(i; i <3 ; i++)
       { coinCounts[i] = cents / coins[i];
         cents = cents % coins[i];
-        printf("%d\t",coinCounts[i]);
+        
       }
-       
+       printf("Quarters:%d, dimes:%d, Nickles:%d", coinCounts[0],coinCounts[1],coinCounts[2] );
       //for(i; i)
     // TODO: Get a float from the user and return the change needed for that amount IE: 2.95
     //       returns 3 quarters and 2 dimes.
