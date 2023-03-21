@@ -157,18 +157,21 @@ float for_loop_testing()
 
     bool is_positive = get_char("Should the counter decrement instead of incrementing? y / n \n") == 'n' ? true : false;
      
-    if(is_positive = true){
-    for( counter; counter <= loop_count; counter = counter + increment )
+    if(is_positive == true){
+    for( int i = 0 ; i  <loop_count; i++ )
     {
+        counter = counter + increment;
 
+          
     }
 
 
     }else{
    
-    for( counter; counter >= loop_count; counter = counter - increment )
+    for( int i = 0 ; i < loop_count; i++ )
      {
-
+        counter = counter - increment ;
+        printf(" decrement");
      }
     }
 
@@ -185,7 +188,7 @@ float integer_float_addition()
     int x = get_int("enetr and integer value\n");
     float y = get_float("please enetr a float value\n");
 
-    float result = (float)x + y;
+    float result = (float)x + y; // casting an int to a float
     // Get an int and a float and add them together, make sure the result comes out as a float
 
     printf("The result of %d plus %f is %f", x, y, result);
